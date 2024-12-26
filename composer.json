@@ -1,0 +1,19 @@
+{
+    "name": "modevsome/palmo",
+    "description": "Simple mock generator for PHP application",
+    "type": "library",
+    "license": "MIT License",
+    "authors": [
+        {
+            "name": "moDevsome - Mickaël Outhier",
+            "email": "contact@mickael-outhier.fr"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "files": ["src/Palmo.php"]
+    },
+    "require": {
+        "php": ">=8.0.0"
+    }
+}
