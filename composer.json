@@ -11,7 +11,9 @@
     ],
     "minimum-stability": "stable",
     "autoload": {
-        "files": ["src/Palmo.php"]
+        "psr-4": {
+            "moDevsome\\Palmo\\": "src/"
+        }
     },
     "require": {
         "php": ">=8.0.0"

@@ -1,8 +1,11 @@
 <?php
 
-namespace moDevsome\Palmo;
+namespace moDevsome\Palmo\Generators;
 
-class PalmoPerson {
+use moDevsome\Palmo\Utils\DatabaseUtil;
+
+class PalmoPerson
+{
 
     private array $lastNamesDb = [];
 
@@ -11,19 +14,18 @@ class PalmoPerson {
      * @param int $maxLength Output max length
      * @return string A random last name
      */
-    public function lastName(int $maxLength = 120): string {
+    public function lastName(int $maxLength = 120): string
+    {
 
         $filteredList = array_filter($this->lastNamesDb, fn($lastName) => $lastName <= $maxLength);
         return $filteredList[rand(0, count($filteredList) - 1)];
-
     }
 
-    public function __construct(&$databaseUtil) {
+    public function __construct(DatabaseUtil &$databaseUtil)
+    {
 
         // Load the databases
         $dbs = $databaseUtil->get(array('lastnames'));
         $this->lastNamesDb = $dbs['lastnames'];
-
     }
 }
-?>

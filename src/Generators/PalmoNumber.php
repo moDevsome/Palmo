@@ -1,9 +1,11 @@
 <?php
 
-namespace moDevsome\Palmo;
+namespace moDevsome\Palmo\Generators;
+
 use Exception;
 
-class PalmoNumber {
+class PalmoNumber
+{
 
     /**
      * Generate random int
@@ -11,13 +13,13 @@ class PalmoNumber {
      * @param int $max Max value
      * @return int A random int
      */
-    public function int(int $min = -9999, int $max = 9999): int {
+    public function int(int $min = -9999, int $max = 9999): int
+    {
 
-        if($max <= $min)
+        if ($max <= $min)
             throw new Exception('PalmoNumber::int() exception, max value must be higher than min value');
 
         return rand($min, $max);
-
     }
 
     /**
@@ -25,10 +27,11 @@ class PalmoNumber {
      * @param float $min Minimum value
      * @param float $max Max value
      * @return int A random float
-    */
-    public function float(float $min = -9999.0, float $max = 9999.0): float {
+     */
+    public function float(float $min = -9999.0, float $max = 9999.0): float
+    {
 
-        if($max <= $min)
+        if ($max <= $min)
             throw new Exception('PalmoNumber::float() exception, max value must be higher than min value');
 
         $delta = $max - $min;
@@ -46,4 +49,3 @@ class PalmoNumber {
         return floatval((float) $output);
     }
 }
-?>

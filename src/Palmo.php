@@ -2,25 +2,22 @@
 
 namespace moDevsome\Palmo;
 
-use DatabaseUtil;
+use moDevsome\Palmo\Utils\DatabaseUtil;
+use moDevsome\Palmo\Generators\PalmoBool;
+use moDevsome\Palmo\Generators\PalmoNumber;
+use moDevsome\Palmo\Generators\PalmoString;
+use moDevsome\Palmo\Generators\PalmoPerson;
 
-$dirName = dirname(__FILE__);
-
-require_once $dirName.'/Utils/DatabaseUtil.php';
-
-require_once $dirName.'/PalmoBool.php';
-require_once $dirName.'/PalmoNumber.php';
-require_once $dirName.'/PalmoPerson.php';
-require_once $dirName.'/PalmoString.php';
-
-class Palmo {
+class Palmo
+{
 
     readonly PalmoBool $bool;
     readonly PalmoNumber $number;
     readonly PalmoString $string;
     readonly PalmoPerson $person;
 
-    public function __construct() {
+    public function __construct()
+    {
 
         $databaseUtil = new DatabaseUtil();
 
@@ -30,4 +27,3 @@ class Palmo {
         $this->person = new PalmoPerson($databaseUtil);
     }
 }
-?>
