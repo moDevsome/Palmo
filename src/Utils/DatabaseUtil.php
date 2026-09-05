@@ -46,7 +46,7 @@ class DatabaseUtil
                         throw new Exception('file_get_contents return FALSE');
                     } else {
 
-                        $this->loadedDb[$dbName] = explode(',', $dbContent);
+                        $this->loadedDb[$dbName] = array_map('trim', explode(',', $dbContent));
                         $output[$dbName] = $this->loadedDb[$dbName];
                     }
                 } catch (Exception $e) {
