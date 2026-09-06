@@ -27,6 +27,6 @@ class Palmo
         $this->date = new PalmoDate();
         $this->number = new PalmoNumber();
         $this->string = new PalmoString();
-        $this->person = new PalmoPerson($databaseUtil);
+        $this->person = new PalmoPerson($this->date, $databaseUtil);
     }
 }
