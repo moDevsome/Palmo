@@ -2,11 +2,13 @@
 
 namespace moDevsome\Palmo\Generators;
 
-use moDevsome\Palmo\PalmoBool;
+use moDevsome\Palmo\Generators\PalmoBool;
 use Exception;
 
 class PalmoString
 {
+
+    private PalmoBool $boolGenerator;
 
     private $alphabet = 'abcdefghijklmnopqrstuvwxyz';
     private $numbers = '0123456789';
@@ -14,13 +16,11 @@ class PalmoString
     private function _alphanum(int $maxLength = 68, int $minLength = 1, bool $hasDigit, bool $onlyDigit = FALSE): string
     {
 
-        $boolGen = new PalmoBool;
-
         if ($minLength < 0)
             throw new Exception('PalmoString::alphanum() exception, minLength must be equal or higher than 0');
 
-        if ($maxLength <= $minLength)
-            throw new Exception('PalmoString::alphanum() exception, maxLength must be higher than minLength');
+        if ($maxLength < $minLength)
+            throw new Exception('PalmoString::alphanum() exception, maxLength must be higher or equal than minLength');
 
         if ($onlyDigit === TRUE) {
 
@@ -37,7 +37,7 @@ class PalmoString
 
             $count++;
             $char = $chars[rand(0, count($chars) - 1)];
-            $output[] = $boolGen->gen() === TRUE ? strtolower($char) : strtoupper($char);
+            $output[] = $this->boolGenerator->gen() === TRUE ? strtolower($char) : strtoupper($char);
 
             if (count($output) === $length) break;
         }
@@ -79,5 +79,11 @@ class PalmoString
     {
 
         return $this->_alphanum($maxLength, $minLength, TRUE, TRUE);
+    }
+
+    public function __construct(PalmoBool &$boolGenerator)
+    {
+
+        $this->boolGenerator = $boolGenerator;
     }
 }
