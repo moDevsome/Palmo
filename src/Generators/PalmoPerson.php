@@ -26,7 +26,7 @@ class PalmoPerson
 
         $usedGender = $gender ?? [PersonGender::FEMALE, PersonGender::MALE][rand(0, 1)];
         $filteredList = array_filter($this->firstNamesDb[$usedGender->value], fn($firstName) => strlen($firstName) <= $maxLength);
-        return $filteredList[rand(0, count($filteredList) - 1)];
+        return $filteredList[array_rand($filteredList)];
     }
 
     /**
@@ -38,7 +38,7 @@ class PalmoPerson
     {
 
         $filteredList = array_filter($this->lastNamesDb, fn($lastName) => strlen($lastName) <= $maxLength);
-        return $filteredList[rand(0, count($filteredList) - 1)];
+        return $filteredList[array_rand($filteredList)];
     }
 
     /**
