@@ -5,6 +5,7 @@ namespace moDevsome\Palmo;
 use moDevsome\Palmo\Utils\DatabaseUtil;
 use moDevsome\Palmo\Generators\PalmoAddress;
 use moDevsome\Palmo\Generators\PalmoBool;
+use moDevsome\Palmo\Generators\PalmoBusiness;
 use moDevsome\Palmo\Generators\PalmoContact;
 use moDevsome\Palmo\Generators\PalmoDate;
 use moDevsome\Palmo\Generators\PalmoNumber;
@@ -16,11 +17,12 @@ class Palmo
 
     readonly PalmoAddress $address;
     readonly PalmoBool $bool;
+    readonly PalmoBusiness $business;
     readonly PalmoContact $contact;
     readonly PalmoDate $date;
     readonly PalmoNumber $number;
-    readonly PalmoString $string;
     readonly PalmoPerson $person;
+    readonly PalmoString $string;
 
     public function __construct()
     {
@@ -36,5 +38,6 @@ class Palmo
         $this->contact = new PalmoContact($this->string, $this->person, $this->bool);
 
         $this->address = new PalmoAddress($databaseUtil, $this->string);
+        $this->business = new PalmoBusiness($databaseUtil);
     }
 }

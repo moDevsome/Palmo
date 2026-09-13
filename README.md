@@ -7,3 +7,4 @@ Simple mock generator for PHP application
 + List of plants: https://en.wikipedia.org/wiki/List_of_plants_with_symbolism
 + List of cities(1): https://en.wikipedia.org/wiki/Urban_areas_in_Europe
 + List of cities(2): https://en.wikipedia.org/wiki/List_of_cities_in_the_United_Kingdom
++ List of fruits: https://en.wikipedia.org/wiki/List_of_culinary_fruits
