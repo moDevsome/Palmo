@@ -11,6 +11,7 @@ class PalmoContact
     private PalmoString $stringGenerator;
     private PalmoPerson $personGenerator;
     private PalmoBool $boolGenerator;
+    private PalmoNet $netGenerator;
 
     /**
      * Specific method to generate UK phone number
@@ -74,11 +75,10 @@ class PalmoContact
     /**
      * Generate random email address
      * @param int $usernameLength - Optionnal username length
-     * @param int $domainLength - Optionnal domaine length
      * @param Person|null $person - Optionnal perso object used to generate the username
      * @return string - Email address
      */
-    public function email(int $usernameLength = 22, int $domainLength = 22, Person|null $person = null): string
+    public function email(int $usernameLength = 22, Person|null $person = null): string
     {
 
         // Define username
@@ -88,8 +88,8 @@ class PalmoContact
             ? $usernameBase . '-' . $this->stringGenerator->alphanum($usernameLength - $usernameBaseLength)
             : substr($usernameBase, 0, $usernameLength));
 
-        // TODO:create domain name with a dedicated generator
-        return $username . '@' . strtolower($this->stringGenerator->alpha($domainLength - 3, 6) . '.' . $this->stringGenerator->alpha(3, 3));
+
+        return $username . '@' . $this->netGenerator->domain();
     }
 
     /**
@@ -134,11 +134,12 @@ class PalmoContact
             : $number;
     }
 
-    public function __construct(PalmoString &$stringGenerator, PalmoPerson &$personGenerator, PalmoBool &$boolGenerator)
+    public function __construct(PalmoString &$stringGenerator, PalmoPerson &$personGenerator, PalmoBool &$boolGenerator, PalmoNet &$netGenerator)
     {
 
         $this->stringGenerator = $stringGenerator;
         $this->personGenerator = $personGenerator;
         $this->boolGenerator = $boolGenerator;
+        $this->netGenerator = $netGenerator;
     }
 }
