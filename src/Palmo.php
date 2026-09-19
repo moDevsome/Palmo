@@ -12,6 +12,7 @@ use moDevsome\Palmo\Generators\PalmoNet;
 use moDevsome\Palmo\Generators\PalmoNumber;
 use moDevsome\Palmo\Generators\PalmoString;
 use moDevsome\Palmo\Generators\PalmoPerson;
+use moDevsome\Palmo\Generators\PalmoPrice;
 
 class Palmo
 {
@@ -24,6 +25,7 @@ class Palmo
     readonly PalmoNet $net;
     readonly PalmoNumber $number;
     readonly PalmoPerson $person;
+    readonly PalmoPrice $price;
     readonly PalmoString $string;
 
     public function __construct()
@@ -36,6 +38,7 @@ class Palmo
         $this->number = new PalmoNumber();
         $this->string = new PalmoString($this->bool);
         $this->person = new PalmoPerson($this->date, $databaseUtil);
+        $this->price = new PalmoPrice();
 
         $this->address = new PalmoAddress($databaseUtil, $this->string);
         $this->business = new PalmoBusiness($databaseUtil);
