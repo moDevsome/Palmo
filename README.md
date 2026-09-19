@@ -9,3 +9,4 @@ Simple mock generator for PHP application
 + List of cities(2): https://en.wikipedia.org/wiki/List_of_cities_in_the_United_Kingdom
 + List of fruits: https://en.wikipedia.org/wiki/List_of_culinary_fruits
 + List of vegetables: https://simple.wikipedia.org/wiki/List_of_vegetables
++ Lorem ipsum: https://fr.wikipedia.org/wiki/Lorem_ipsum

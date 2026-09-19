@@ -8,6 +8,7 @@ use moDevsome\Palmo\Generators\PalmoBool;
 use moDevsome\Palmo\Generators\PalmoBusiness;
 use moDevsome\Palmo\Generators\PalmoContact;
 use moDevsome\Palmo\Generators\PalmoDate;
+use moDevsome\Palmo\Generators\PalmoLorem;
 use moDevsome\Palmo\Generators\PalmoNet;
 use moDevsome\Palmo\Generators\PalmoNumber;
 use moDevsome\Palmo\Generators\PalmoString;
@@ -22,6 +23,7 @@ class Palmo
     readonly PalmoBusiness $business;
     readonly PalmoContact $contact;
     readonly PalmoDate $date;
+    readonly PalmoLorem $lorem;
     readonly PalmoNet $net;
     readonly PalmoNumber $number;
     readonly PalmoPerson $person;
@@ -35,6 +37,7 @@ class Palmo
 
         $this->bool = new PalmoBool();
         $this->date = new PalmoDate();
+        $this->lorem = new PalmoLorem($databaseUtil);
         $this->number = new PalmoNumber();
         $this->string = new PalmoString($this->bool);
         $this->person = new PalmoPerson($this->date, $databaseUtil);

@@ -46,7 +46,8 @@ class DatabaseUtil
                         throw new Exception('file_get_contents return FALSE');
                     } else {
 
-                        $this->loadedDb[$dbName] = array_map('trim', explode(',', $dbContent));
+                        $separator = $dbName === 'lorem' ? '|' : ',';
+                        $this->loadedDb[$dbName] = array_map('trim', explode($separator, $dbContent));
                         $output[$dbName] = $this->loadedDb[$dbName];
                     }
                 } catch (Exception $e) {
