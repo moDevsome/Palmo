@@ -30,6 +30,19 @@ class Palmo
     readonly PalmoPrice $price;
     readonly PalmoString $string;
 
+    /**
+     * Pick a random item from the given array
+     * @param array $input
+     * @return mixed - Random value from the given array or null if the array is empty
+     */
+    public function randomArrayItem(array $input): mixed
+    {
+        if (count($input) === 0)
+            return null;
+
+        return $input[array_rand($input)];
+    }
+
     public function __construct()
     {
 
