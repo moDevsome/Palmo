@@ -2,7 +2,8 @@
     "name": "modevsome/palmo",
     "description": "Simple mock generator for PHP application",
     "type": "library",
-    "license": "MIT License",
+    "keywords": ["mock","stub","generator"],
+    "license": "MIT",
     "authors": [
         {
             "name": "moDevsome - Mickaël Outhier",
